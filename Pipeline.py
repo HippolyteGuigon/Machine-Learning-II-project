@@ -5,6 +5,15 @@ import seaborn as sns
 from xgboost import XGBClassifier
 import pandas as pd
 import numpy as np
+from matplotlib import pyplot
+from mpl_toolkits.mplot3d import Axes3D
+from numpy.random import rand
+from pylab import figure
+from sklearn.preprocessing import StandardScaler
+from sklearn.decomposition import PCA
+import warnings
+warnings.filterwarnings("ignore")
+from numpy.linalg import *
 
 le = preprocessing.LabelEncoder()
 
@@ -29,6 +38,9 @@ def clean_data(X):
     return X
 
 def graphique_time(X):
+    
+    print("We can see that there is a great correlation between the type of trader and the average time per operation")
+    
     names = pd.get_dummies(X["type"]).columns
     values = [pd.get_dummies(X["type"]).iloc[:, i].sum() for i in range(len(pd.get_dummies(X["type"]).columns))]
     second_time = [X[X["type"]==i]["NbSecondWithAtLeatOneTrade"].mean() for i in list(pd.get_dummies(X["type"]).columns)]
@@ -62,7 +74,94 @@ def graphique_normal(X):
     # (Corr= 0.700927) GrLivArea vs SalePrice plot
     fig3 = fig.add_subplot(223); 
     sns.scatterplot(x = X["NbTradeVenueMic"], y = X["NbSecondWithAtLeatOneTrade"], hue=X.type, palette= 'Spectral')
+    
+    fig1 = fig.add_subplot(224);
+    sns.boxplot(x="type", y="mean_time_two_events", data=X[["mean_time_two_events", "type"]])
 
     plt.tight_layout(); plt.show()
+    
+
+class PCA_Analysis:
+    
+    def __init__(self, number_of_components):
+        
+        self.nb = number_of_components
+        
+    def get_defra_scaled(self):
+        
+        train = pd.read_csv("X_train.csv")
+        Y_train = pd.read_csv("Y_train.csv")
+        df_merged = pd.merge(left=train, right=Y_train, left_on=["Trader"], right_on=["Trader"])
+        index = [2*i + 1 for i in range(df_merged.shape[0]//2)]
+        df_merged.drop(index, inplace=True)
+        df_merged = clean_data(df_merged)
+        
+        df_PCA = df_merged.drop(["Trader", "Index", "type"], axis=1)
+        defra_scaled = pd.DataFrame(StandardScaler().fit_transform(df_PCA))
+
+        defra_scaled.columns = df_merged.drop(["Trader", "Index", "type"], axis=1).columns
+        
+        return defra_scaled
+    
+    def PCA_graph_3D(self):
+        
+        n_components = self.nb
+
+        pca = PCA(n_components = n_components)
+        pca.fit(self.get_defra_scaled())
+        Projection = pca.transform(self.get_defra_scaled())
+        
+        Projection_List = Projection[:, 0], Projection[:, 1], Projection[:, 2]
+
+
+        print("The variance explained by the {} main axes is : {:.3f} %".format(n_components, 100*sum(pca.explained_variance_ratio_)))
+
+        print("\n")
+
+        defra_pca = pca.fit_transform(self.get_defra_scaled())
+        Label = self.get_defra_scaled().columns
+
+        fig = figure(figsize = (35, 35))
+        ax = Axes3D(fig)
+
+        for i in range(1, n_components):
+            ax.scatter(Projection_List[0][i], Projection_List[1][i], Projection_List[2][i], color='b') 
+            ax.text(Projection_List[0][i], Projection_List[1][i], Projection_List[2][i],  '%s' % (Label[i]), size=25, zorder=1,  
+    color='k')
+            ax.set_xlabel("PC1", fontsize = 40)
+            ax.set_ylabel("PC2", fontsize = 40)
+            ax.set_zlabel("PC3", fontsize = 40)
+
+    
+        plt.title("Projection of the n points on the span of the three main axes", fontsize = 40);
+        
+
+
+        D, V = eig(self.get_defra_scaled().T @ self.get_defra_scaled()/len(self.get_defra_scaled()))
+        index = np.argsort(D)[::-1][:n_components]
+        importance = self.get_defra_scaled().columns[index]
+        
+        print("The {} most important axes are :{}".format(n_components, importance))
+        
+        
+    
+    def PCA_Variance(self):
+        
+        n_components = self.nb
+        
+        D, V = eig(self.get_defra_scaled().T @ self.get_defra_scaled()/len(self.get_defra_scaled()))
+        index = np.argsort(D)[::-1][:n_components]
+        importance = self.get_defra_scaled().columns[index]
+       
+        values = 100 * np.cumsum(D[index]/sum(D))
+        names = np.arange(1, len(values)+1, 1)
+        
+        plt.figure(figsize=(15, 12))
+        plt.title("Variance explained for the number of axis chosen")
+        plt.xlabel("Number of axis chosen")
+        plt.ylabel("Variance explained (in %)")
+        plt.bar(names, values) ; plt.show()
+        
+        
     
     
