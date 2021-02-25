@@ -141,7 +141,30 @@ class PCA_Analysis:
         index = np.argsort(D)[::-1][:n_components]
         importance = self.get_defra_scaled().columns[index]
         
-        print("The {} most important axes are :{}".format(n_components, importance))
+        print("The {} most important axes are :{}".format(n_components, list(importance)))
+        
+    def PCA_graph_2D(self):
+        
+        n_components = self.nb
+        
+        A = np.dot(self.get_defra_scaled().T, self.get_defra_scaled())
+
+        D, V = eig(A)
+
+        Projection_1 = np.dot(self.get_defra_scaled(), V[:,0])
+        Projection_2 = np.dot(self.get_defra_scaled(), V[:,2])
+
+        plt.figure(figsize = (20, 20))
+        
+        Label = self.get_defra_scaled().columns
+
+        for i in range(n_components):
+                x, y = Projection_1[i], Projection_2[i]
+                plt.text(Projection_1[i], Projection_2[i], Label[i], fontsize = 15)
+                plt.scatter(x, y)
+                plt.title("Projection of the n points on the span of the two main axes", fontsize = 25)
+                plt.xlabel("PC1", fontsize = 25)
+                plt.ylabel("PC2", fontsize = 25)
         
         
     
