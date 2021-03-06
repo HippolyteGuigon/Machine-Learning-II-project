@@ -1,5 +1,5 @@
 Trader,type
-Adelaide,NON HFT
+Adelaide,MIX
 Alana,NON HFT
 Alcmene,NON HFT
 Alice,HFT
@@ -13,7 +13,7 @@ Baby Red Bird,NON HFT
 Backwoods Beagle,MIX
 Bacon Beagle,NON HFT
 Baileywick,MIX
-Bat Queen,NON HFT
+Bat Queen,MIX
 Becky,NON HFT
 Bent-Tail the Coyote,HFT
 Big Al,NON HFT
@@ -23,17 +23,17 @@ Black Bart,NON HFT
 Bobble,NON HFT
 Bomber Beagle,NON HFT
 Bookseller,HFT
-Boomer,NON HFT
-Bowler Hat Guy,MIX
-Braddock,MIX
+Boomer,MIX
+Bowler Hat Guy,NON HFT
+Braddock,NON HFT
 Brer Bear,NON HFT
 Brudo Avarius,MIX
 Bruno the Dog,NON HFT
 Buck Leatherleaf,HFT
-Bucky Oryx-Antlerson,NON HFT
+Bucky Oryx-Antlerson,MIX
 Butch the Bulldog,MIX
 Butcher Boy,NON HFT
-Dallben,MIX
+Dallben,NON HFT
 Danny,MIX
 Dennis Avarius,NON HFT
 Digger the Mole,NON HFT
@@ -48,16 +48,16 @@ Dr. Teeth,NON HFT
 Duchess,MIX
 Duke of Weselton,MIX
 Dylan Dalmatian,NON HFT
-Edric Blight,NON HFT
+Edric Blight,MIX
 Elliott,NON HFT
 Emperor Belos,NON HFT
 Evinrude,HFT
-Fairy Mary,MIX
+Fairy Mary,NON HFT
 Fidget,MIX
 Flash,MIX
 Flora,MIX
 Flounder,MIX
-Flunkey the Baboon,MIX
+Flunkey the Baboon,HFT
 Francis,HFT
 Friend Owl,NON HFT
 Mad Hatter,HFT
@@ -65,12 +65,12 @@ Madame Medusa,MIX
 Maddie Flour,NON HFT
 Magic Carpet,NON HFT
 Major the Horse,MIX
-Marahute,HFT
+Marahute,MIX
 March Hare,NON HFT
 Marlon the Alligator,NON HFT
-Mary Darling,NON HFT
+Mary Darling,MIX
 Mattholomule,NON HFT
-Maui,HFT
+Maui,MIX
 Max the Sheepdog,MIX
 Megavolt,MIX
 Melpomene,HFT
