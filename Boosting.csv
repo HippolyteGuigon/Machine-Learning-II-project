@@ -1,5 +1,5 @@
 Trader,type
-Adelaide,NON HFT
+Adelaide,MIX
 Alana,NON HFT
 Alcmene,NON HFT
 Alice,HFT
@@ -9,7 +9,7 @@ Annette,MIX
 Armoire,MIX
 Arthur/Wart,NON HFT
 Axe,MIX
-Baby Red Bird,NON HFT
+Baby Red Bird,MIX
 Backwoods Beagle,MIX
 Bacon Beagle,NON HFT
 Baileywick,MIX
@@ -38,7 +38,7 @@ Danny,MIX
 Dennis Avarius,NON HFT
 Digger the Mole,NON HFT
 Dijon the Thief,MIX
-Don Karnage,HFT
+Don Karnage,MIX
 Donald Duck,HFT
 Doug Dalmatian,NON HFT
 Dr. Delbert Doppler,NON HFT
@@ -57,7 +57,7 @@ Fidget,MIX
 Flash,MIX
 Flora,MIX
 Flounder,MIX
-Flunkey the Baboon,NON HFT
+Flunkey the Baboon,MIX
 Francis,HFT
 Friend Owl,NON HFT
 Mad Hatter,HFT

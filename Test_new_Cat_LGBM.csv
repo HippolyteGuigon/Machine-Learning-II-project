@@ -1,5 +1,5 @@
 Trader,type
-Adelaide,NON HFT
+Adelaide,MIX
 Alana,NON HFT
 Alcmene,NON HFT
 Alice,HFT
@@ -7,9 +7,9 @@ Alices Sister,NON HFT
 Angel (Experiment 624),NON HFT
 Annette,MIX
 Armoire,MIX
-Arthur/Wart,NON HFT
+Arthur/Wart,MIX
 Axe,MIX
-Baby Red Bird,NON HFT
+Baby Red Bird,MIX
 Backwoods Beagle,MIX
 Bacon Beagle,NON HFT
 Baileywick,MIX
@@ -24,10 +24,10 @@ Bobble,NON HFT
 Bomber Beagle,NON HFT
 Bookseller,HFT
 Boomer,NON HFT
-Bowler Hat Guy,MIX
-Braddock,MIX
+Bowler Hat Guy,NON HFT
+Braddock,NON HFT
 Brer Bear,NON HFT
-Brudo Avarius,MIX
+Brudo Avarius,HFT
 Bruno the Dog,NON HFT
 Buck Leatherleaf,HFT
 Bucky Oryx-Antlerson,NON HFT
@@ -57,25 +57,25 @@ Fidget,MIX
 Flash,MIX
 Flora,MIX
 Flounder,MIX
-Flunkey the Baboon,HFT
+Flunkey the Baboon,NON HFT
 Francis,HFT
-Friend Owl,NON HFT
-Mad Hatter,HFT
+Friend Owl,MIX
+Mad Hatter,MIX
 Madame Medusa,MIX
 Maddie Flour,NON HFT
-Magic Carpet,NON HFT
+Magic Carpet,HFT
 Major the Horse,MIX
 Marahute,HFT
 March Hare,NON HFT
 Marlon the Alligator,NON HFT
 Mary Darling,NON HFT
 Mattholomule,NON HFT
-Maui,HFT
+Maui,MIX
 Max the Sheepdog,MIX
 Megavolt,MIX
 Melpomene,HFT
 Merlock the Magician,NON HFT
-Mike the Microphone,HFT
+Mike the Microphone,MIX
 Miss Bianca,NON HFT
 Miss Nettle,NON HFT
 Moana,NON HFT

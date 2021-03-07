@@ -1,5 +1,5 @@
 Trader,type
-Adelaide,NON HFT
+Adelaide,MIX
 Alana,NON HFT
 Alcmene,NON HFT
 Alice,HFT
@@ -38,7 +38,7 @@ Danny,MIX
 Dennis Avarius,NON HFT
 Digger the Mole,NON HFT
 Dijon the Thief,MIX
-Don Karnage,HFT
+Don Karnage,MIX
 Donald Duck,HFT
 Doug Dalmatian,NON HFT
 Dr. Delbert Doppler,NON HFT
